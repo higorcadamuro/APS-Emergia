@@ -1,17 +1,15 @@
-package java.view.screens;
+package view.screens;
 
-import java.view.components.BackgroundPanel;
+import view.components.BackgroundPanel;
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
+import java.util.Objects;
 
 public class MainMenu extends JFrame {
-    private JSplitPane splitPane;
-    private JPanel menuPanel;
     private BackgroundPanel contentPanel;
     private JLabel imagemLabel;
     private JLabel textoLabel;
-    private Timer timer;
     private int index = 0;
 
     private final String[] imagens = {
@@ -39,7 +37,7 @@ public class MainMenu extends JFrame {
 
     private void iniciarComponentes(String usuario) {
         // Configuração do painel do menu
-        menuPanel = new JPanel();
+        JPanel menuPanel = new JPanel();
         menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
         menuPanel.setBackground(Color.decode("#2C2F33"));
 
@@ -66,7 +64,7 @@ public class MainMenu extends JFrame {
         contentPanel.setLayout(new BorderLayout());
 
         // Configuração do split pane
-        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, menuPanel, contentPanel);
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, menuPanel, contentPanel);
         splitPane.setDividerLocation(250);
         splitPane.setEnabled(false);
         add(splitPane);
@@ -80,7 +78,7 @@ public class MainMenu extends JFrame {
         painel.setLayout(new BoxLayout(painel, BoxLayout.X_AXIS));
         painel.setBorder(BorderFactory.createEmptyBorder(20, 0, 10, 0));
 
-        ImageIcon icone = new ImageIcon(getClass().getResource("/view/resources/imagens/Logo_User.png"));
+        ImageIcon icone = new ImageIcon(Objects.requireNonNull(getClass().getResource("/view/resources/imagens/Logo_User.png")));
         Image imagemRedimensionada = icone.getImage().getScaledInstance(35, 35, Image.SCALE_SMOOTH);
         JLabel labelIcone = new JLabel(new ImageIcon(imagemRedimensionada));
         JLabel labelUsuario = new JLabel(usuario);
@@ -113,12 +111,10 @@ public class MainMenu extends JFrame {
             botao.setFocusPainted(false);
             botao.setHorizontalAlignment(SwingConstants.LEFT);
 
-            if (texto.equals("Conceito")) {
-                botao.addActionListener(e -> mostrarPaginaConceito());
-            } else if (texto.equals("Metodologia")) {
-                botao.addActionListener(e -> mostrarPaginaMetodologia());
-            } else if (texto.equals("Calcular")) {
-                botao.addActionListener(e -> mostrarPaginaCalculo());
+            switch (texto) {
+                case "Conceito" -> botao.addActionListener(e -> mostrarPaginaConceito());
+                case "Metodologia" -> botao.addActionListener(e -> mostrarPaginaMetodologia());
+                case "Calcular" -> botao.addActionListener(e -> mostrarPaginaCalculo());
             }
 
             painel.add(Box.createRigidArea(new Dimension(20, 0)));
@@ -173,7 +169,7 @@ public class MainMenu extends JFrame {
 
     private void iniciarCarrossel() {
         atualizarCarrossel();
-        timer = new Timer(10000, e -> atualizarCarrossel());
+        Timer timer = new Timer(10000, e -> atualizarCarrossel());
         timer.start();
     }
 

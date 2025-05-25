@@ -1,4 +1,4 @@
-package java.view.screens;
+package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
@@ -95,7 +95,7 @@ public class TelaLogin extends JFrame {
         estilizarLink(esqueceuSenhaButton, Color.RED);
         esqueceuSenhaButton.addActionListener(e -> {
             dispose();
-            new java.view.screens.EsqueceuSenha().setVisible(true);
+            new view.screens.EsqueceuSenha().setVisible(true);
         });
         loginPanel.add(esqueceuSenhaButton, gbc);
 

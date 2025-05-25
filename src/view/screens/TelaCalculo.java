@@ -1,9 +1,9 @@
-package java.view.screens;
+package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
-import java.model.Insumo;
-import java.model.CalculadoraEmergia;
+import model.Insumo;
+import model.CalculadoraEmergia;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;

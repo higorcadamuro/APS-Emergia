@@ -1,4 +1,4 @@
-package java.view.screens;
+package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,7 +29,7 @@ public class TelaConceito extends JPanel {
         painelConteudo.add(linha);
 
         // Imagem ilustrativa
-        ImageIcon img = new ImageIcon(Objects.requireNonNull(getClass().getResource("view/resource/imagens.Farm_image.jpg")));
+        ImageIcon img = new ImageIcon(getClass().getResource("/View/Resources/imagens/Farm_Image.jpg"));
         JLabel imgLabel = new JLabel(img);
         imgLabel.setBounds(0, 100, 1600, 200);
         painelConteudo.add(imgLabel);

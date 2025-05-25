@@ -1,3 +1,5 @@
+package app;
+
 import view.screens.TelaLogin;
 import javax.swing.*;
 
