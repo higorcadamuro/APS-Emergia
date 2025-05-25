@@ -14,7 +14,7 @@ public class TelaLogin extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         // Carrega background
-        ImageIcon bgIcon = new ImageIcon(getClass().getResource("/view/resources/imagens/Login_Page.jpg"));
+        ImageIcon bgIcon = new ImageIcon(getClass().getResource("/imagens/Login_Page.jpg"));
         JLabel background = new JLabel(bgIcon);
         background.setLayout(new BorderLayout());
         setContentPane(background);

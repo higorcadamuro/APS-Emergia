@@ -13,7 +13,7 @@ public class EsqueceuSenha extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         // Fundo com imagem igual ao LoginPage
-        ImageIcon bgIcon = new ImageIcon(Objects.requireNonNull(Objects.requireNonNull(getClass().getResource("/view/resources/imagens/Login_Page.jpg"))));
+        ImageIcon bgIcon = new ImageIcon(Objects.requireNonNull(Objects.requireNonNull(getClass().getResource("/imagens/Login_Page.jpg"))));
         JLabel background = new JLabel(bgIcon);
         background.setLayout(new BorderLayout());
         setContentPane(background);

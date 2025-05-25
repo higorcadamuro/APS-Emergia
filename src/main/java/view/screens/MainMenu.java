@@ -13,11 +13,11 @@ public class MainMenu extends JFrame {
     private int index = 0;
 
     private final String[] imagens = {
-            "/view/resources/imagens/Odum_Image.png",
-            "/view/resources/imagens/Odum_Image.png",
-            "/view/resources/imagens/Odum_Image.png",
-            "/view/resources/imagens/Odum_Image.png",
-            "/view/resources/imagens/Odum_Image.png"
+            "/imagens/Odum_Image.png",
+            "/imagens/Odum_Image.png",
+            "/imagens/Odum_Image.png",
+            "/imagens/Odum_Image.png",
+            "/imagens/Odum_Image.png"
     };
 
     private final String[] textos = {
@@ -60,7 +60,7 @@ public class MainMenu extends JFrame {
         menuPanel.add(painelSair);
 
         // Configuração do painel de conteúdo
-        contentPanel = new BackgroundPanel("/view/resources/imagens/Menu_Page.jpg");
+        contentPanel = new BackgroundPanel("/imagens/Menu_Page.jpg");
         contentPanel.setLayout(new BorderLayout());
 
         // Configuração do split pane
@@ -78,7 +78,7 @@ public class MainMenu extends JFrame {
         painel.setLayout(new BoxLayout(painel, BoxLayout.X_AXIS));
         painel.setBorder(BorderFactory.createEmptyBorder(20, 0, 10, 0));
 
-        ImageIcon icone = new ImageIcon(Objects.requireNonNull(getClass().getResource("/view/resources/imagens/Logo_User.png")));
+        ImageIcon icone = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagens/Logo_User.png")));
         Image imagemRedimensionada = icone.getImage().getScaledInstance(35, 35, Image.SCALE_SMOOTH);
         JLabel labelIcone = new JLabel(new ImageIcon(imagemRedimensionada));
         JLabel labelUsuario = new JLabel(usuario);

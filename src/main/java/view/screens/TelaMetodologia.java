@@ -36,7 +36,7 @@ public class TelaMetodologia extends JPanel {
                 private final Image imagem;
 
                 {
-                    URL url = getClass().getResource("/View/Images/Farm_Image.jpg");
+                    URL url = getClass().getResource("/Imagens/Farm_Image.jpg");
                     if (url != null) {
                         imagem = new ImageIcon(url).getImage();
                     } else {

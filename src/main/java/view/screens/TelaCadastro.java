@@ -19,7 +19,7 @@ public class TelaCadastro extends JFrame {
         setLayout(null);
 
         // Fundo com imagem
-        ImageIcon bgIcon = new ImageIcon(getClass().getResource("/view/resources/imagens/Login_Page.jpg"));
+        ImageIcon bgIcon = new ImageIcon(getClass().getResource("/imagens/Login_Page.jpg"));
         JLabel background = new JLabel(bgIcon);
         background.setBounds(0, 0, 1920, 1080);
         background.setLayout(null);
