@@ -1,8 +1,10 @@
-package java.view.screens;
+package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import javax.swing.border.Border;
+import java.awt.geom.RoundRectangle2D;
 
 public class TelaLogin extends JFrame {
     private JTextField usuarioField;
@@ -95,7 +97,7 @@ public class TelaLogin extends JFrame {
         estilizarLink(esqueceuSenhaButton, Color.RED);
         esqueceuSenhaButton.addActionListener(e -> {
             dispose();
-            new java.view.screens.EsqueceuSenha().setVisible(true);
+            new view.screens.EsqueceuSenha().setVisible(true);
         });
         loginPanel.add(esqueceuSenhaButton, gbc);
 

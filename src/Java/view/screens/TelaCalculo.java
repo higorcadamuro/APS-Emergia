@@ -1,9 +1,9 @@
-package java.view.screens;
+package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
-import java.model.Insumo;
-import java.model.CalculadoraEmergia;
+import model.Insumo;
+import model.CalculadoraEmergia;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -103,6 +103,17 @@ public class TelaCalculo extends JPanel {
 
         btnCalc.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Gráfico atualizado!");
+        });
+    }
+
+    // === MAIN PARA EXECUÇÃO INDEPENDENTE ===
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Cálculo de Emergia");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setExtendedState(JFrame.MAXIMIZED_BOTH); // tela cheia
+            frame.setContentPane(new TelaCalculo());
+            frame.setVisible(true);
         });
     }
 }

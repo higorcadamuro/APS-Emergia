@@ -1,8 +1,7 @@
-package java.view.screens;
+package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
 
 public class TelaConceito extends JPanel {
 
@@ -29,11 +28,22 @@ public class TelaConceito extends JPanel {
         painelConteudo.add(linha);
 
         // Imagem ilustrativa
-        ImageIcon img = new ImageIcon(Objects.requireNonNull(getClass().getResource("view/resource/imagens.Farm_image.jpg")));
+        ImageIcon img = new ImageIcon(getClass().getResource("view/resource/imagens.Farm_image.jpg"));
         JLabel imgLabel = new JLabel(img);
         imgLabel.setBounds(0, 100, 1600, 200);
         painelConteudo.add(imgLabel);
 
         add(painelConteudo, BorderLayout.CENTER);
+    }
+
+    // Método main para tornar executável isoladamente
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Visualização – Página Conceito");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            frame.setContentPane(new view.screens.TelaConceito());
+            frame.setVisible(true);
+        });
     }
 }

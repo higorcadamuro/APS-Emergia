@@ -1,4 +1,4 @@
-package java.view.screens;
+package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
@@ -92,5 +92,9 @@ public class EsqueceuSenha extends JFrame {
         wrapper.setOpaque(false);
         wrapper.add(recoveryPanel);
         background.add(wrapper, BorderLayout.CENTER);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new EsqueceuSenha().setVisible(true));
     }
 }

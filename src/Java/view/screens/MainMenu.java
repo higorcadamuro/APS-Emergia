@@ -1,6 +1,6 @@
-package java.view.screens;
+package view.screens;
 
-import java.view.components.BackgroundPanel;
+import view.components.BackgroundPanel;
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
@@ -203,5 +203,9 @@ public class MainMenu extends JFrame {
         contentPanel.removeAll();
         contentPanel.add(new TelaMetodologia(), BorderLayout.CENTER);
         contentPanel.revalidate();
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new MainMenu("Admin").setVisible(true));
     }
 }

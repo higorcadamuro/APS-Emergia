@@ -1,4 +1,4 @@
-package java.view.screens;
+package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
@@ -80,5 +80,9 @@ public class TelaCadastro extends JFrame {
         campo.setFont(new Font("Dialog", Font.PLAIN, 16));
         panel.add(campo);
         return campo;
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new TelaCadastro().setVisible(true));
     }
 }
