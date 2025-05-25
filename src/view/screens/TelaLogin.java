@@ -3,8 +3,6 @@ package view.screens;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.border.Border;
-import java.awt.geom.RoundRectangle2D;
 
 public class TelaLogin extends JFrame {
     private JTextField usuarioField;
@@ -15,11 +13,13 @@ public class TelaLogin extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+        // Carrega background
         ImageIcon bgIcon = new ImageIcon(getClass().getResource("/view/resources/imagens/Login_Page.jpg"));
         JLabel background = new JLabel(bgIcon);
         background.setLayout(new BorderLayout());
         setContentPane(background);
 
+        // Painel de login translúcido
         JPanel loginPanel = new JPanel(new GridBagLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -38,20 +38,18 @@ public class TelaLogin extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
 
-        // Título
+        // ====== TÍTULO ======
         gbc.gridy = 0;
         JLabel loginLabel = new JLabel("LOGIN", SwingConstants.CENTER);
         loginLabel.setFont(new Font("Dialog", Font.BOLD, 28));
         loginLabel.setForeground(Color.WHITE);
-        loginLabel.setHorizontalAlignment(SwingConstants.CENTER);
         loginPanel.add(loginLabel, gbc);
 
-        // Usuário
+        // ====== USUÁRIO ======
         gbc.gridy = 1;
         JLabel usuarioLabel = new JLabel("USUÁRIO", SwingConstants.CENTER);
         usuarioLabel.setFont(new Font("Dialog", Font.BOLD, 16));
         usuarioLabel.setForeground(Color.WHITE);
-        usuarioLabel.setHorizontalAlignment(SwingConstants.CENTER);
         loginPanel.add(usuarioLabel, gbc);
 
         gbc.gridy = 2;
@@ -60,12 +58,11 @@ public class TelaLogin extends JFrame {
         usuarioField.setHorizontalAlignment(JTextField.CENTER);
         loginPanel.add(usuarioField, gbc);
 
-        // Senha
+        // ====== SENHA ======
         gbc.gridy = 3;
         JLabel senhaLabel = new JLabel("SENHA", SwingConstants.CENTER);
         senhaLabel.setFont(new Font("Dialog", Font.BOLD, 16));
         senhaLabel.setForeground(Color.WHITE);
-        senhaLabel.setHorizontalAlignment(SwingConstants.CENTER);
         loginPanel.add(senhaLabel, gbc);
 
         gbc.gridy = 4;
@@ -77,7 +74,7 @@ public class TelaLogin extends JFrame {
         }});
         loginPanel.add(senhaField, gbc);
 
-        // Botão Entrar
+        // ====== BOTÃO ENTRAR ======
         gbc.gridy = 5;
         JButton entrarButton = new JButton("ENTRAR");
         entrarButton.setFont(new Font("Dialog", Font.BOLD, 18));
@@ -85,23 +82,27 @@ public class TelaLogin extends JFrame {
         entrarButton.addActionListener(this::realizarLogin);
         loginPanel.add(entrarButton, gbc);
 
-        // Link Criar Conta
+        // ====== LINK CRIAR CONTA ======
         gbc.gridy = 6;
         JButton criarContaButton = new JButton("CRIAR CONTA");
         estilizarLink(criarContaButton, Color.GREEN);
+        criarContaButton.addActionListener(e -> {
+            dispose();                              // Fecha a tela de login
+            new TelaCadastro().setVisible(true);    // Abre a tela de cadastro
+        });
         loginPanel.add(criarContaButton, gbc);
 
-        // Link Esqueceu Senha
+        // ====== LINK ESQUECEU A SENHA ======
         gbc.gridy = 7;
         JButton esqueceuSenhaButton = new JButton("ESQUECEU A SENHA");
         estilizarLink(esqueceuSenhaButton, Color.RED);
         esqueceuSenhaButton.addActionListener(e -> {
             dispose();
-            new view.screens.EsqueceuSenha().setVisible(true);
+            new EsqueceuSenha().setVisible(true);
         });
         loginPanel.add(esqueceuSenhaButton, gbc);
 
-        // Wrapper alinhado à esquerda com margem vertical ajustada
+        // ====== WRAPPER ======
         JPanel wrapper = new JPanel(new FlowLayout(FlowLayout.LEFT, 100, 200));
         wrapper.setOpaque(false);
         wrapper.add(loginPanel);
@@ -126,5 +127,9 @@ public class TelaLogin extends JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos.");
         }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new TelaLogin().setVisible(true));
     }
 }

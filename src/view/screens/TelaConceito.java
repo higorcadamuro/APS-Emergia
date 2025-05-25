@@ -28,7 +28,7 @@ public class TelaConceito extends JPanel {
         painelConteudo.add(linha);
 
         // Imagem ilustrativa
-        ImageIcon img = new ImageIcon(getClass().getResource("/View/Images/Farm_Image.jpg"));
+        ImageIcon img = new ImageIcon(getClass().getResource("/View/Resources/imagens/Farm_Image.jpg"));
         JLabel imgLabel = new JLabel(img);
         imgLabel.setBounds(0, 100, 1600, 200);
         painelConteudo.add(imgLabel);
@@ -42,7 +42,7 @@ public class TelaConceito extends JPanel {
             JFrame frame = new JFrame("Visualização – Página Conceito");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            frame.setContentPane(new ConceptPage());
+            frame.setContentPane(new TelaConceito());
             frame.setVisible(true);
         });
     }
