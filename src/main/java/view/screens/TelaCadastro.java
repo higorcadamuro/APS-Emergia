@@ -19,7 +19,7 @@ public class TelaCadastro extends JFrame {
         setLayout(null);
 
         // Fundo com imagem
-        ImageIcon bgIcon = new ImageIcon(getClass().getResource("/View/Images/Login_Page.jpg"));
+        ImageIcon bgIcon = new ImageIcon(getClass().getResource("/imagens/Login_Page.jpg"));
         JLabel background = new JLabel(bgIcon);
         background.setBounds(0, 0, 1920, 1080);
         background.setLayout(null);
@@ -36,7 +36,7 @@ public class TelaCadastro extends JFrame {
             }
         };
         registerPanel.setOpaque(false);
-        registerPanel.setBounds(100, 160, 600, 600);
+        registerPanel.setBounds(100, 160, 600, 700); // Aumentei a altura para caber o botão Voltar
 
         // Título
         JLabel title = new JLabel("CADASTRO", SwingConstants.CENTER);
@@ -46,24 +46,37 @@ public class TelaCadastro extends JFrame {
         registerPanel.add(title);
 
         int y = 100;
-        int altura = 40;
         int espacamento = 80;
 
+        // Campos
         nomeField = criarCampo("Nome/ Responsável", y, registerPanel);
         y += espacamento;
         cpfCnpjField = criarCampo("CPF/CNPJ", y, registerPanel);
-        y += 70;
+        y += espacamento;
         telefoneField = criarCampo("Telefone", y, registerPanel);
-        y += 70;
+        y += espacamento;
         emailField = criarCampo("E-mail", y, registerPanel);
-        y += 70;
+        y += espacamento;
 
+        // Botão CADASTRAR
         JButton cadastrarButton = new JButton("CADASTRAR");
         cadastrarButton.setBounds(210, y + 30, 180, 40);
         cadastrarButton.setFont(new Font("Dialog", Font.BOLD, 18));
         cadastrarButton.setFocusPainted(false);
         registerPanel.add(cadastrarButton);
 
+        // Botão VOLTAR
+        JButton voltarButton = new JButton("VOLTAR");
+        voltarButton.setBounds(210, y + 90, 180, 40);
+        voltarButton.setFont(new Font("Dialog", Font.BOLD, 18));
+        voltarButton.setFocusPainted(false);
+        voltarButton.addActionListener(e -> {
+            dispose();                  // Fecha a TelaCadastro
+            new TelaLogin().setVisible(true);  // Reabre a TelaLogin
+        });
+        registerPanel.add(voltarButton);
+
+        // Adiciona tudo ao conteúdo
         background.add(registerPanel);
         setContentPane(background);
     }

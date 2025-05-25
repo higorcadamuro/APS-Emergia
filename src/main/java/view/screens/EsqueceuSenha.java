@@ -2,6 +2,7 @@ package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class EsqueceuSenha extends JFrame {
     private JTextField emailField;
@@ -12,7 +13,7 @@ public class EsqueceuSenha extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         // Fundo com imagem igual ao LoginPage
-        ImageIcon bgIcon = new ImageIcon(getClass().getResource("/View/Images/Login_Page.jpg"));
+        ImageIcon bgIcon = new ImageIcon(Objects.requireNonNull(Objects.requireNonNull(getClass().getResource("/imagens/Login_Page.jpg"))));
         JLabel background = new JLabel(bgIcon);
         background.setLayout(new BorderLayout());
         setContentPane(background);
