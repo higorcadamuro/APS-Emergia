@@ -94,8 +94,4 @@ public class TelaCadastro extends JFrame {
         panel.add(campo);
         return campo;
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new TelaCadastro().setVisible(true));
-    }
 }

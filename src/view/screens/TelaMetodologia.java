@@ -90,14 +90,4 @@ public class TelaMetodologia extends JPanel {
 
             add(painelCentral, BorderLayout.CENTER);
         }
-
-        public static void main(String[] args) {
-            SwingUtilities.invokeLater(() -> {
-                JFrame frame = new JFrame("Visualização – Página Metodologia");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                frame.setContentPane(new TelaMetodologia());
-                frame.setVisible(true);
-            });
-        }
     }

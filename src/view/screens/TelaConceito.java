@@ -2,6 +2,7 @@ package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class TelaConceito extends JPanel {
 
@@ -34,16 +35,5 @@ public class TelaConceito extends JPanel {
         painelConteudo.add(imgLabel);
 
         add(painelConteudo, BorderLayout.CENTER);
-    }
-
-    // Método main para tornar executável isoladamente
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Visualização – Página Conceito");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            frame.setContentPane(new TelaConceito());
-            frame.setVisible(true);
-        });
     }
 }

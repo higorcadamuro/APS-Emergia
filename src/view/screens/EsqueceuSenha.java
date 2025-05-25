@@ -94,8 +94,4 @@ public class EsqueceuSenha extends JFrame {
         wrapper.add(recoveryPanel);
         background.add(wrapper, BorderLayout.CENTER);
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new EsqueceuSenha().setVisible(true));
-    }
 }

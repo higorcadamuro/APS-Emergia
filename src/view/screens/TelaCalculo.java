@@ -105,15 +105,4 @@ public class TelaCalculo extends JPanel {
             JOptionPane.showMessageDialog(this, "Gráfico atualizado!");
         });
     }
-
-    // === MAIN PARA EXECUÇÃO INDEPENDENTE ===
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Cálculo de Emergia");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setExtendedState(JFrame.MAXIMIZED_BOTH); // tela cheia
-            frame.setContentPane(new TelaCalculo());
-            frame.setVisible(true);
-        });
-    }
 }
