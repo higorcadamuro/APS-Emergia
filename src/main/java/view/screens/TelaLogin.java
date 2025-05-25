@@ -5,11 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Objects;
 
-// importa as telas que você chama a partir do login
-import view.screens.MainMenu;
-import view.screens.TelaCadastro;
-import view.screens.EsqueceuSenha;
-
 public class TelaLogin extends JFrame {
     private final JTextField usuarioField;
     private final JPasswordField senhaField;
