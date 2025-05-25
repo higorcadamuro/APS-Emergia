@@ -2,7 +2,6 @@ package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
 
 public class TelaConceito extends JPanel {
 
