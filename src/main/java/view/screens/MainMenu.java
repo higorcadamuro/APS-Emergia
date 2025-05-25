@@ -1,12 +1,14 @@
 package view.screens;
 
 import view.components.BackgroundPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 import java.util.Objects;
 
 public class MainMenu extends JFrame {
+    private final String usuario;
     private BackgroundPanel contentPanel;
     private JLabel imagemLabel;
     private JLabel textoLabel;
@@ -30,6 +32,7 @@ public class MainMenu extends JFrame {
 
     public MainMenu(String usuario) {
         super("Menu Principal");
+        this.usuario = usuario;
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setExtendedState(MAXIMIZED_BOTH);
         iniciarComponentes(usuario);

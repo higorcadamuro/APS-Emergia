@@ -3,10 +3,16 @@ package view.screens;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.Objects;
+
+// importa as telas que você chama a partir do login
+import view.screens.MainMenu;
+import view.screens.TelaCadastro;
+import view.screens.EsqueceuSenha;
 
 public class TelaLogin extends JFrame {
-    private JTextField usuarioField;
-    private JPasswordField senhaField;
+    private final JTextField usuarioField;
+    private final JPasswordField senhaField;
 
     public TelaLogin() {
         super("Login - Emergia");
@@ -14,7 +20,10 @@ public class TelaLogin extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         // Carrega background
-        ImageIcon bgIcon = new ImageIcon(getClass().getResource("/imagens/Login_Page.jpg"));
+        ImageIcon bgIcon = new ImageIcon(
+                Objects.requireNonNull(getClass().getResource("/imagens/Login_Page.jpg"),
+                        "Imagem Login_Page.jpg não encontrada")
+        );
         JLabel background = new JLabel(bgIcon);
         background.setLayout(new BorderLayout());
         setContentPane(background);
@@ -25,7 +34,8 @@ public class TelaLogin extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 Graphics2D g2 = (Graphics2D) g;
-                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                        RenderingHints.VALUE_ANTIALIAS_ON);
                 g2.setColor(new Color(0, 0, 0, 150));
                 g2.fillRoundRect(0, 0, getWidth(), getHeight(), 40, 40);
             }
@@ -33,10 +43,13 @@ public class TelaLogin extends JFrame {
         loginPanel.setOpaque(false);
         loginPanel.setPreferredSize(new Dimension(450, 550));
 
+        usuarioField = new JTextField(20);
+        senhaField  = new JPasswordField(20);
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 0;
+        gbc.fill   = GridBagConstraints.HORIZONTAL;
+        gbc.gridx  = 0;
 
         // ====== TÍTULO ======
         gbc.gridy = 0;
@@ -53,7 +66,6 @@ public class TelaLogin extends JFrame {
         loginPanel.add(usuarioLabel, gbc);
 
         gbc.gridy = 2;
-        usuarioField = new JTextField(20);
         usuarioField.setFont(new Font("Dialog", Font.PLAIN, 16));
         usuarioField.setHorizontalAlignment(JTextField.CENTER);
         loginPanel.add(usuarioField, gbc);
@@ -66,7 +78,6 @@ public class TelaLogin extends JFrame {
         loginPanel.add(senhaLabel, gbc);
 
         gbc.gridy = 4;
-        senhaField = new JPasswordField(20);
         senhaField.setFont(new Font("Dialog", Font.PLAIN, 16));
         senhaField.setHorizontalAlignment(JTextField.CENTER);
         senhaField.setDocument(new javax.swing.text.PlainDocument() {{
@@ -87,8 +98,8 @@ public class TelaLogin extends JFrame {
         JButton criarContaButton = new JButton("CRIAR CONTA");
         estilizarLink(criarContaButton, Color.GREEN);
         criarContaButton.addActionListener(e -> {
-            dispose();                              // Fecha a tela de login
-            new TelaCadastro().setVisible(true);    // Abre a tela de cadastro
+            dispose();
+            new TelaCadastro().setVisible(true);
         });
         loginPanel.add(criarContaButton, gbc);
 
@@ -119,7 +130,7 @@ public class TelaLogin extends JFrame {
 
     private void realizarLogin(ActionEvent e) {
         String usuario = usuarioField.getText();
-        String senha = new String(senhaField.getPassword());
+        String senha   = new String(senhaField.getPassword());
 
         if (usuario.equalsIgnoreCase("admin") && senha.equals("1234")) {
             dispose();
